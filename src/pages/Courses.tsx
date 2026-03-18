@@ -1,5 +1,5 @@
+// src/pages/Courses.tsx
 import React from 'react';
-import StatCard from '../components/StatCard';
 
 type Course = {
   courseCode: string;
@@ -7,23 +7,25 @@ type Course = {
   credits: number;
 };
 
-type CoursesProps = {
-  courses: Course[];
-};
+const Courses = () => {
+  const courseList: Course[] = [
+    { courseCode: 'CS101', courseName: 'Intro to CS', credits: 3 },
+    { courseCode: 'CS102', courseName: 'Data Structures', credits: 4 },
+  ];
 
-const Courses: React.FC<CoursesProps> = ({ courses }) => {
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-      {courses.map((course) => (
-        <StatCard
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-6 p-6">
+      {courseList.map((course) => (
+        <div
           key={course.courseCode}
-          title={course.courseName}
-          value={`${course.credits} Credits`}
-          icon={null}
-        />
+          className="bg-white/70 backdrop-blur-md rounded-3xl shadow-lg p-6"
+        >
+          <h2 className="font-semibold text-lg">{course.courseName}</h2>
+          <p className="text-md">{course.credits} Credits</p>
+        </div>
       ))}
     </div>
   );
 };
 
-export default Courses;
+export default Courses; // ✅ default export

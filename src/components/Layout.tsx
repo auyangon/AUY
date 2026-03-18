@@ -1,14 +1,15 @@
-import React, { useState } from 'react';
+// src/components/Layout.tsx
+import React, { ReactNode, useState } from 'react';
 
-type LayoutProps = {
-  children: React.ReactNode;
+type Props = {
+  children: ReactNode;
 };
 
-const Layout: React.FC<LayoutProps> = ({ children }) => {
+const Layout = ({ children }: Props) => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
   return (
-    <div className="flex h-screen bg-gray-100">
+    <div className="flex min-h-screen bg-gray-100">
       {sidebarOpen && (
         <div
           className="fixed inset-0 bg-black/20 z-40 lg:hidden"
@@ -20,9 +21,9 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
           <h1 className="text-xl font-bold">AUY Portal</h1>
         </div>
       </aside>
-      <main className="flex-1 p-6 overflow-auto">{children}</main>
+      <main className="flex-1 p-6">{children}</main>
     </div>
   );
 };
 
-export default Layout;
+export default Layout; // ✅ default export
