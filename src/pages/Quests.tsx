@@ -1,29 +1,26 @@
-﻿import React from 'react';
-import { useData } from '../contexts/DataContext';
-import { useAuth } from '../contexts/AuthContext';
-import { QuestCard } from '../components/QuestCard';
-import { Loader } from '../components/Loader';
-import { motion } from 'framer-motion';
+﻿// src/pages/Quests.tsx
+import React from 'react';
+import { useStudentData } from '../hooks/useStudentData';
+import StatCard from '../components/StatCard';
 
-export const Quests: React.FC = () => {
-  const { quests, studentQuests, loading } = useData();
-  const { userEmail } = useAuth();
-
-  if (loading) return <Loader />;
-
-  const questsWithStatus = quests.map(quest => {
-    const sq = studentQuests.find(sq => sq.questId === quest.questId);
-    return { ...quest, status: sq?.status || 'pending' };
-  });
+const Quests: React.FC = () => {
+  const { studentQuests } = useStudentData();
 
   return (
-    <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="p-6">
-      <h1 className="text-2xl font-semibold mb-6">Quests</h1>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {questsWithStatus.map(quest => (
-          <QuestCard key={quest.questId} quest={quest} status={quest.status as any} />
+    <div className="p-6">
+      <h1 className="text-2xl font-semibold mb-4">Quests</h1>
+      <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+        {studentQuests.map(quest => (
+          <StatCard
+            key={quest.questId}
+            title={quest.title}
+            value={quest.status}
+            icon={null}
+          />
         ))}
       </div>
-    </motion.div>
+    </div>
   );
 };
+
+export default Quests;

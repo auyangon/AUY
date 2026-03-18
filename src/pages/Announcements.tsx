@@ -1,29 +1,26 @@
-﻿import React from 'react';
-import { useData } from '../contexts/DataContext';
-import { Card } from '../components/Card';
-import { Loader } from '../components/Loader';
-import { motion } from 'framer-motion';
+﻿// src/pages/Announcements.tsx
+import React from 'react';
+import { useStudentData } from '../hooks/useStudentData';
+import StatCard from '../components/StatCard';
 
-export const Announcements: React.FC = () => {
-  const { announcements, loading } = useData();
-
-  if (loading) return <Loader />;
+const Announcements: React.FC = () => {
+  const { announcements } = useStudentData();
 
   return (
-    <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="p-6">
-      <h1 className="text-2xl font-semibold mb-6">Announcements</h1>
-      <div className="space-y-4">
-        {announcements.map(ann => (
-          <Card key={ann.announcementId}>
-            <h2 className="font-semibold text-lg">{ann.title}</h2>
-            <p className="text-sm text-gray-700 mt-2">{ann.content}</p>
-            <div className="flex justify-between items-center mt-4 text-xs text-gray-500">
-              <span>By {ann.createdBy}</span>
-              <span>{new Date(ann.createdAt).toLocaleDateString()}</span>
-            </div>
-          </Card>
+    <div className="p-6">
+      <h1 className="text-2xl font-semibold mb-4">Announcements</h1>
+      <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+        {announcements.map(announcement => (
+          <StatCard
+            key={announcement.announcementId}
+            title={announcement.title}
+            value={announcement.content}
+            icon={null}
+          />
         ))}
       </div>
-    </motion.div>
+    </div>
   );
 };
+
+export default Announcements;
