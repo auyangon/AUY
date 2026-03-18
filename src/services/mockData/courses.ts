@@ -21,3 +21,5 @@ export const mockCourses: Course[] = [
     status: "active"
   }
 ];
+
+

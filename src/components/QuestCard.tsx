@@ -34,3 +34,5 @@ export const QuestCard: React.FC<QuestCardProps> = ({ quest, status = 'pending',
     </motion.div>
   );
 };
+
+

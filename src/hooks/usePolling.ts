@@ -13,3 +13,5 @@ export const usePolling = (callback: () => void, interval: number = 60000) => {
     return () => clearInterval(id);
   }, [interval]);
 };
+
+

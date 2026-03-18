@@ -25,3 +25,5 @@ export const StatCard: React.FC<StatCardProps> = ({ title, value, icon: Icon, ch
     </Card>
   );
 };
+
+

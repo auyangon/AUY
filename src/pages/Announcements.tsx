@@ -24,3 +24,4 @@ const Announcements: React.FC = () => {
 };
 
 export default Announcements;
+

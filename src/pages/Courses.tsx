@@ -1,4 +1,4 @@
-// src/pages/Courses.tsx
+﻿// src/pages/Courses.tsx
 import React from 'react';
 import { useStudentData } from '../hooks/useStudentData';
 import StatCard from '../components/StatCard';
@@ -14,7 +14,7 @@ const Courses: React.FC = () => {
           <StatCard
             key={course.courseCode}
             title={course.courseName}
-            value={`${course.credits} Credits`} // ✅ Fixed
+            value={`${course.credits} Credits`} // âœ… Fixed
             icon={null}
           />
         ))}
@@ -24,3 +24,4 @@ const Courses: React.FC = () => {
 };
 
 export default Courses;
+

@@ -19,3 +19,5 @@ export const mockAnnouncements: Announcement[] = [
     createdBy: "a.turing@auy.edu.mm"
   }
 ];
+
+

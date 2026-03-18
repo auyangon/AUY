@@ -24,3 +24,4 @@ const Quests: React.FC = () => {
 };
 
 export default Quests;
+

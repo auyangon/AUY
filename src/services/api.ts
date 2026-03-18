@@ -1,40 +1,38 @@
-﻿import * as mockData from './mockData';
+﻿import axios from 'axios';
 
-const USE_MOCK = import.meta.env.VITE_USE_MOCK === 'true';
-const API_BASE = import.meta.env.VITE_API_BASE || 'https://script.google.com/macros/s/AKfycbyfmemkEGxuQiDwTEGQzS6IsyzUEl1PtO-zX4_Ml9hYi5Hn0OcCBm7U5iyIed37XHTI/exec';
+const API_URL = 'https://script.google.com/macros/s/YOUR_SCRIPT_ID/exec';
 
-let mockStorage: Record<string, any[]> = {};
+type SheetName =
+  | 'Students'
+  | 'Courses'
+  | 'Enrollments'
+  | 'Schedule'
+  | 'Materials'
+  | 'Announcements'
+  | 'Attendance'
+  | 'Quests'
+  | 'StudentQuests'
+  | 'Requests';
 
-export const fetchSheet = async (sheetName: string, email?: string) => {
-  if (USE_MOCK) {
-    await new Promise(resolve => setTimeout(resolve, 300));
-    const key = sheetName.toLowerCase();
-    let data = (mockData as any)[mock\] || [];
-    if (email) data = data.filter((item: any) => item.email === email);
-    return data;
-  } else {
-    const url = new URL(API_BASE);
-    url.searchParams.set('sheet', sheetName);
-    if (email) url.searchParams.set('email', email);
-    const res = await fetch(url.toString());
-    if (!res.ok) throw new Error(API error: \);
-    return res.json();
+export const fetchSheet = async (sheet: SheetName, email?: string) => {
+  try {
+    const params: Record<string, string> = { sheet };
+    if (email) params.email = email;
+    const response = await axios.get(API_URL, { params });
+    return response.data;
+  } catch (err) {
+    console.error('Fetch Sheet Error:', err);
+    return [];
   }
 };
 
-export const postData = async (sheet: string, data: any) => {
-  if (USE_MOCK) {
-    await new Promise(resolve => setTimeout(resolve, 300));
-    const newEntry = { ...data, id: Date.now().toString() };
-    if (!mockStorage[sheet]) mockStorage[sheet] = [];
-    mockStorage[sheet].push(newEntry);
-    return { success: true, ...newEntry };
-  } else {
-    const res = await fetch(API_BASE, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ sheet, data })
-    });
-    return res.json();
+export const addRow = async (sheet: SheetName, data: Record<string, any>) => {
+  try {
+    const response = await axios.post(API_URL, { sheet, data });
+    return response.data;
+  } catch (err) {
+    console.error('Add Row Error:', err);
+    return { error: err };
   }
 };
+

@@ -1,4 +1,4 @@
-export interface Student {
+﻿export interface Student {
   email: string;
   studentId: string;
   studentName: string;
@@ -105,3 +105,4 @@ export interface Request {
   resolvedAt: string;
   adminNote: string;
 }
+

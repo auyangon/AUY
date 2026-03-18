@@ -24,3 +24,4 @@ const Materials: React.FC = () => {
 };
 
 export default Materials;
+
