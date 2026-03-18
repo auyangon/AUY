@@ -1,25 +1,21 @@
+// src/components/StatCard.tsx
 import React from 'react';
-import { Card } from './Card'; // matches the named export now
 import { IconType } from 'react-icons';
 
-type StatCardProps = {
+type Props = {
   title: string;
   value: string | number;
-  icon: IconType | null;
-  change?: string;
+  icon?: IconType;
 };
 
-export const StatCard = ({ title, value, icon: Icon, change }: StatCardProps) => {
+const StatCard = ({ title, value, icon: Icon }: Props) => {
   return (
-    <Card>
-      <div className="flex items-center justify-between">
-        <div>
-          <h2 className="text-lg font-semibold">{title}</h2>
-          <p className="text-2xl font-bold">{value}</p>
-          {change && <p className="text-sm text-gray-500">{change}</p>}
-        </div>
-        {Icon && <Icon className="text-3xl text-green-500" />}
-      </div>
-    </Card>
+    <div className="bg-white/70 backdrop-blur-md rounded-3xl shadow-lg p-6">
+      {Icon && <Icon className="text-2xl mb-2" />}
+      <h2 className="font-semibold text-lg">{title}</h2>
+      <p className="text-xl">{value}</p>
+    </div>
   );
 };
+
+export default StatCard; // ✅ default export
