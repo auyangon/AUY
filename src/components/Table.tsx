@@ -1,4 +1,4 @@
-﻿import React from 'react';
+import React from 'react';
 
 interface Column<T> {
   key: keyof T;
@@ -39,5 +39,6 @@ export function Table<T extends Record<string, any>>({ data, columns }: TablePro
     </div>
   );
 }
+
 
 

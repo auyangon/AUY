@@ -1,4 +1,4 @@
-﻿// src/pages/Schedule.tsx
+// src/pages/Schedule.tsx
 import React from 'react';
 import { useStudentData } from '../hooks/useStudentData';
 import StatCard from '../components/StatCard';
@@ -24,4 +24,5 @@ const Schedule: React.FC = () => {
 };
 
 export default Schedule;
+
 

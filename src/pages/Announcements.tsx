@@ -1,4 +1,4 @@
-﻿// src/pages/Announcements.tsx
+// src/pages/Announcements.tsx
 import React from 'react';
 import { useStudentData } from '../hooks/useStudentData';
 import StatCard from '../components/StatCard';
@@ -24,4 +24,5 @@ const Announcements: React.FC = () => {
 };
 
 export default Announcements;
+
 

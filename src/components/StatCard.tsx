@@ -1,4 +1,4 @@
-﻿import React from 'react';
+import React from 'react';
 import { Card } from './Card';
 import { IconType } from 'react-icons';
 
@@ -25,5 +25,6 @@ export const StatCard: React.FC<StatCardProps> = ({ title, value, icon: Icon, ch
     </Card>
   );
 };
+
 
 

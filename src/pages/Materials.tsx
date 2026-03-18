@@ -1,4 +1,4 @@
-﻿// src/pages/Materials.tsx
+// src/pages/Materials.tsx
 import React from 'react';
 import { useStudentData } from '../hooks/useStudentData';
 import StatCard from '../components/StatCard';
@@ -24,4 +24,5 @@ const Materials: React.FC = () => {
 };
 
 export default Materials;
+
 

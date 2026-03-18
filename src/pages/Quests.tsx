@@ -1,4 +1,4 @@
-﻿// src/pages/Quests.tsx
+// src/pages/Quests.tsx
 import React from 'react';
 import { useStudentData } from '../hooks/useStudentData';
 import StatCard from '../components/StatCard';
@@ -24,4 +24,5 @@ const Quests: React.FC = () => {
 };
 
 export default Quests;
+
 

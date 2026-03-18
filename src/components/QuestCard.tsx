@@ -1,4 +1,4 @@
-﻿import React from 'react';
+import React from 'react';
 import { Card } from './Card';
 import { Quest } from '../types';
 import { motion } from 'framer-motion';
@@ -21,7 +21,7 @@ export const QuestCard: React.FC<QuestCardProps> = ({ quest, status = 'pending',
       <Card className="cursor-pointer">
         <div className="flex justify-between items-start">
           <h3 className="font-semibold text-lg">{quest.title}</h3>
-          <span className={\	ext-xs px-2 py-1 rounded-full \\}>
+          <span className={	ext-xs px-2 py-1 rounded-full }>
             {status}
           </span>
         </div>
@@ -34,5 +34,6 @@ export const QuestCard: React.FC<QuestCardProps> = ({ quest, status = 'pending',
     </motion.div>
   );
 };
+
 
 

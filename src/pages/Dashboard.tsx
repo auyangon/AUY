@@ -1,4 +1,4 @@
-﻿// src/pages/Dashboard.tsx
+// src/pages/Dashboard.tsx
 import React from 'react';
 import { FiTrendingUp, FiBook, FiCheckCircle, FiClock } from 'react-icons/fi';
 import StatCard from '../components/StatCard';
@@ -28,7 +28,7 @@ const Dashboard: React.FC = () => {
       {/* Attendance Card */}
       <StatCard
         title="Attendance"
-        value={`${attendanceRate.toFixed(0)}%`} // ✅ Fixed syntax
+        value={`${attendanceRate.toFixed(0)}%`} // ? Fixed syntax
         icon={FiCheckCircle}
       />
 
@@ -43,4 +43,5 @@ const Dashboard: React.FC = () => {
 };
 
 export default Dashboard;
+
 
